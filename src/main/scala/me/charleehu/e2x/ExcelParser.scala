@@ -50,7 +50,7 @@ object ExcelParser {
     }
 
     def writeXML(path: String, name: String, data: (Vector[String], Vector[Vector[String]])) {
-        IOUtils.writeXML(path, name) { writer =>
+        IOUtils.writeXML(path) { writer =>
             <DICT name={ name }>
                 {
                     data._2.map { dt =>

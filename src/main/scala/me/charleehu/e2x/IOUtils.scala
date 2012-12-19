@@ -19,8 +19,8 @@ object IOUtils {
         }
     }
     
-    def writeXML(path: String, name: String)(deal: Writer => Node) {
-        val writer = Channels.newWriter(new FileOutputStream(new File(path, name)).getChannel(), "UTF-8")
+    def writeXML(path: String)(deal: Writer => Node) {
+        val writer = Channels.newWriter(new FileOutputStream(new File(path)).getChannel(), "UTF-8")
         try {
             writer.write("<?xml version='1.0' encoding='UTF-8'?>\n")
             writer.write(new PrettyPrinter(80, 2).format(deal(writer)))
